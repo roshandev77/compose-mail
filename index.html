@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <style>
+        table{
+            border-collapse: unset !important;
+            border-spacing: 10 !important;
+        }
+        td{
+            padding: 1;
+            margin: 5px;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+
+    <title>textAngular 1.1.2 Demo</title>
+
+    <meta name="robots" content="noindex">
+
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href="./style.css">
+
+</head>
+
+<body ng-app="textAngularTest" ng-controller="homeCtrl">
+
+    <div class="container app">
+        <h3>Compose Message</h3>
+        <div rich-editor variables="['Fname ','Lname ','Password ']" ng-model="someModel"></div>
+        <div class="button-class">
+            <span>
+                <table>
+                    <tr>
+                        <!-- <td align="left" style="border-radius: 3px; padding-right: 5px" bgcolor="#e9703e">
+                            <a href="" target="_blank" class="btn_save">Save</a>
+                        </td>
+                        <td align="center" style="border-radius: 3px;" bgcolor="#e9703e">
+                            <a href="" target="_blank" class="btn_save">Save</a>
+                        </td>
+                        <td align="right" style="border-radius: 3px;" bgcolor="#e9703e">
+                            <a href="" target="_blank" class="btn_save">Save</a>
+                        </td> -->
+
+                        <td style="border-radius: 20px;" bgcolor="#1d55ad">
+                                <span ><a href="" target="_blank" class="btn_save">Save</a></span>
+                        </td>
+
+                        <td style="border-radius: 20px; padding-right: 5px" bgcolor="#e9703e">
+                                <span><a href="" target="_blank" class="btn_cancel">Cancel</a></span>
+                        </td>
+
+                        <td style="border-radius: 20px; padding-right: 5px" bgcolor="#e9703e">
+                                <span><a href="" target="_blank" class="btn_preview">Preview</a></span>
+                        </td>
+                    </tr>
+                </table>
+            </span>
+        </div>
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
