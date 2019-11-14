@@ -2,13 +2,61 @@
 
 <head>
     <style>
-        table{
+        table {
             border-collapse: unset !important;
             border-spacing: 10 !important;
         }
-        td{
+
+        td {
             padding: 1;
             margin: 5px;
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
         }
     </style>
 
@@ -28,7 +76,9 @@
 
     <div class="container app">
         <h3>Compose Message</h3>
-        <div rich-editor variables="['Fname ','Lname ','Password ']" ng-model="someModel"></div>
+        <div rich-editor variables="['Fname ','Lname ','Password ']" ng-model="someModel">
+            <!-- <h1>You entered: {{someModel}}</h1> -->
+        </div>
         <div class="button-class">
             <span>
                 <table>
@@ -44,15 +94,15 @@
                         </td> -->
 
                         <td style="border-radius: 20px;" bgcolor="#1d55ad">
-                                <span ><a href="" target="_blank" class="btn_save">Save</a></span>
+                            <span><a href="" target="_blank" class="btn_save">Save</a></span>
                         </td>
 
                         <td style="border-radius: 20px; padding-right: 5px" bgcolor="#e9703e">
-                                <span><a href="" target="_blank" class="btn_cancel">Cancel</a></span>
+                            <span><a href="" target="_blank" class="btn_cancel">Cancel</a></span>
                         </td>
 
                         <td style="border-radius: 20px; padding-right: 5px" bgcolor="#e9703e">
-                                <span><a href="" target="_blank" class="btn_preview">Preview</a></span>
+                            <span><a id="myBtn" target="_blank" class="btn_preview">Preview</a></span>
                         </td>
                     </tr>
                 </table>
@@ -60,10 +110,39 @@
         </div>
     </div>
 
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+            <div ng-bind-html="someModel"></div>
+        </div>
+
+    </div>
+
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular-sanitize.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
     <script src="./script.js"></script>
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 
